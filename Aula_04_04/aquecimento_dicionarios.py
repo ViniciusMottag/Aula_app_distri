@@ -36,8 +36,14 @@ devolve o dicionario da avaliacao
 '''
 
 def consulta(film_id,user_id):
-    pass
-
+    tamanho=(len(reviews_aquecimento))
+    for valor in range(tamanho):
+        dic_de_consulta=reviews_aquecimento[valor]
+        if film_id == dic_de_consulta['film_id'] and user_id ==dic_de_consulta['user_id']:
+            return reviews_aquecimento[valor]
+        else:
+            pass
+    return 'nao encontrado'
 '''
 Agora, façamos uma funcao que adiciona uma nova avaliacao
 '''

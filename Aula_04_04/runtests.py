@@ -44,7 +44,7 @@ class TestStringMethods(unittest.TestCase):
         r = requests.get('http://localhost:5000/ola_com_dic?pessoa2=barney')
         self.assertEqual(r.status_code,400)
         self.assertEqual(r.json()['erro'],'falta gente')
-'''
+
     
     def test_005_operacoes_ola_com_dic(self):
         r = requests.post('http://localhost:5000/ola_com_dic',
@@ -65,7 +65,7 @@ class TestStringMethods(unittest.TestCase):
             json={'pessoa1':'harry'})
         self.assertEqual(r.status_code,400)
         self.assertEqual(r.json()['erro'],'falta gente')
-
+'''
     def test_100_arquivo_aquecimento(self):
         import aquecimento_dicionarios #esse teste verifica se o arquivo aquecimento_dicionarios esta na mesma pasta que o runtests.py
 
