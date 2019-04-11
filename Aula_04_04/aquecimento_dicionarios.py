@@ -49,7 +49,27 @@ Agora, façamos uma funcao que adiciona uma nova avaliacao
 '''
 
 def adiciona(film_id,user_id,comment):
-    pass
+    '''
+    tamanho=(len(reviews_aquecimento))
+    for valor in range(tamanho):
+        dic_de_consulta=reviews_aquecimento[valor]
+        if film_id == dic_de_consulta['film_id'] and user_id ==dic_de_consulta['user_id']:
+            reviews_aquecimento.pop(valor)
+        else:
+            pass
+    return reviews_aquecimento.append({'film_id':film_id,'user_id':user_id,'comment':comment})
+    '''
+    consultado=consulta.(film_id,user_id)
+    if consultado='nao encontrado':
+        nova_av={}
+        nova_av['film_id'] = film_id
+        nova_av['user_id'] = user_id
+        nova_av['comment'] = comment
+        reviews_aquecimento.append(nova_av)
+    else:
+        consultado['comment']=comment
+
+        
 
 '''
 Agora, façamos um upgrade na adiciona:
