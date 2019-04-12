@@ -55,18 +55,20 @@ def deleta_aluno(id_recebido):
 
 @app.route('/alunos/<int:id_recebido>', methods=['PUT'])
 def edita_aluno(id_recebido):
-    dici = request.json
-    lenght_alunos = len(database['ALUNO'])
-    for aluno in range(lenght_alunos):
-        if database['ALUNO'][aluno]['id'] == id_recebido:
-            novo_nome = request.json['nome']
-            database['ALUNO'][aluno]['nome'] = novo_nome
-            return 'ID aluno alterado: {}'.format(id_recebido)
-    if 'nome' not in dici:
-        dic_erro = {'erro': 'aluno sem nome'}
-        return jsonify(dic_erro), 400
-    dic_erro = {'erro': 'aluno nao encontrado'}
-    return jsonify(dic_erro), 400
+	dici = request.json
+	lenght_alunos = len(database['ALUNO'])
+	for aluno in range(lenght_alunos):
+		if 'nome' not in dici:
+			dic_erro = {'erro': 'aluno sem nome'}
+			return jsonify(dic_erro), 400
+
+		elif database['ALUNO'][aluno]['id'] == id_recebido:
+			novo_nome = dici['nome']
+			database['ALUNO'][aluno]['nome'] = novo_nome
+			return 'ID aluno alterado: {}'.format(id_recebido)
+	
+	dic_erro = {'erro': 'aluno nao encontrado'}
+	return jsonify(dic_erro), 400
 
 
 @app.route("/") 
